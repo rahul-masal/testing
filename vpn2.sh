@@ -13,8 +13,6 @@ sudo su - <<EOF
 
 # Edit the sudoers file
 echo "Editing the sudoers file..."
-echo "@includedir /etc/sudoers.d" >> /etc/sudoers
-echo "admin ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper" >> /etc/sudoers
 echo "admin ALL=(ALL) NOPASSWD: /usr/sbin/openvpn" >> /etc/sudoers
 echo "admin ALL=(ALL) NOPASSWD: /usr/sbin/ifconfig" >> /etc/sudoers
 
@@ -24,7 +22,7 @@ apt update
 apt install -y python3-pip expect
 
 # Install subprocess.run module
-pip3 install subprocess.run
+pip3 install subprocess.run --break-system-packages
 
 # Create the VPN folder and Python script
 echo "Creating the VPN folder and Python script..."
