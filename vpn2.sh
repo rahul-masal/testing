@@ -32,7 +32,7 @@ import subprocess
 import time
 
 # Path to your OpenVPN configuration file and secret file
-CONFIG_FILE = "/home/admin/vpn/main.ovpn"
+CONFIG_FILE = "/home/admin/vpn/ssbnclient.ovpn"
 SECRET_FILE = "/home/admin/vpn/secret"
 
 # Your private key password
