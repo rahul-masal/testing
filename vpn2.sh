@@ -55,7 +55,7 @@ def is_internet_available():
 
 def connect_vpn():
     expect_script = f"""
-    spawn sudo openvpn --config "{CONFIG_FILE}" --auth-user-pass "{SECRET_FILE}" --data-ciphers AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:AES-128-CBC
+    spawn sudo openvpn --config "{CONFIG_FILE}" --auth-user-pass "{SECRET_FILE}" --dev tun0 --data-ciphers AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:AES-128-CBC
     expect "Enter Private Key Password:"
     send "{PRIVATE_KEY_PASSWORD}\\r"
     expect eof
