@@ -24,36 +24,6 @@ apt update
 apt install -y python3-pip expect
 
 # Install subprocess.run module
-pip3 install subprocess.run  --break-system-packages
-
-# Create the VPN folder and Python script
-echo "Creating the VPN folder and Python script..."
-mkdir -p /home/admin/vpn
-cat <<'EOT' > /home/admin/vpn/vpn.py
-#!/bin/bash
-
-# Switch to root user
-expect <<EOD
-spawn sudo su
-expect "Password:"
-send "gogreen@g1\r"
-expect eof
-EOD
-
-# Continue as root user
-sudo su - <<EOF
-
-# Edit the sudoers file
-echo "Editing the sudoers file..."
-echo "admin ALL=(ALL) NOPASSWD: /usr/sbin/openvpn" >> /etc/sudoers
-echo "admin ALL=(ALL) NOPASSWD: /usr/sbin/ifconfig" >> /etc/sudoers
-
-# Update package list and install required packages
-echo "Updating package list and installing required packages..."
-apt update
-apt install -y python3-pip expect
-
-# Install subprocess.run module
 pip3 install subprocess.run
 
 # Create the VPN folder and Python script
@@ -112,16 +82,6 @@ while True:
 
     # Sleep for a short period before re-checking the VPN connection
     time.sleep(10)
-EOT
-
-# Add the VPN script to crontab
-echo "Adding the VPN script to crontab..."
-(crontab -l 2>/dev/null; echo "* * * * * /usr/bin/python3 /home/admin/vpn/vpn.py") | crontab -
-
-EOF
-
-echo "VPN setup script completed."
-
 EOT
 
 # Add the VPN script to crontab
