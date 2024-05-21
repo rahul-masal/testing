@@ -20,9 +20,12 @@ echo "admin ALL=(ALL) NOPASSWD: /usr/sbin/ifconfig" >> /etc/sudoers
 echo "Updating package list and installing required packages..."
 apt update
 apt install -y python3-pip expect
+apt install freerdp2-x11
+apt install python3-tk
 
 # Install subprocess.run module
 pip3 install subprocess.run --break-system-packages
+pip3 install pyinstaller --break-system-packages
 
 # Create the VPN folder and Python script
 echo "Creating the VPN folder and Python script..."
