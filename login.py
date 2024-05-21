@@ -8,7 +8,7 @@ def submit_login():
     entered_username = username_entry.get()
     entered_password = password_entry.get()
 
-    with open('/home/admin/Desktop/loginpage/data.txt', 'r') as file:
+    with open('/home/admin/vpn/data.txt', 'r') as file:
         stored_username = file.readline().strip()
         stored_password = file.readline().strip()
 
