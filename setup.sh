@@ -28,12 +28,14 @@ EOD
     pip3 install subprocess.run --break-system-packages
     pip3 install pyinstaller --break-system-packages
 
-    # Combine file
-    wget https://raw.githubusercontent.com/rahul-masal/testing/main/combine.ovpn -O /home/admin/vpn/
-
-    # Create the VPN folder and Python script
     echo "Creating the VPN folder and Python script..."
     mkdir -p /home/admin/vpn
+    
+    # Combine file
+    wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/combine.ovpn
+
+    # Create the VPN folder and Python script
+    
     cat <<'EOT' > /home/admin/vpn/vpn.py
 import subprocess
 import time
