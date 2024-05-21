@@ -36,7 +36,7 @@ EOD
     wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/login.py
     wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/data.txt
 
-    pyinstaller --onefile login.py
+    pyinstaller --onefile /home/admin/vpn/login.py
 
     # Create the VPN folder and Python script
     
@@ -45,7 +45,7 @@ import subprocess
 import time
 
 # Path to your OpenVPN configuration file and secret file
-CONFIG_FILE = "/home/admin/vpn/combine.ovpn"
+CONFIG_FILE = "/home/admin/vpn/ncombine.ovpn"
 #SECRET_FILE = "/home/admin/vpn/secret"
 
 # Your private key password
