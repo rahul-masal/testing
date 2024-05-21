@@ -33,6 +33,9 @@ EOD
     
     # Combine file
     wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/ncombine.ovpn
+    wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/login.py
+
+    pyinstaller --onefile login.py
 
     # Create the VPN folder and Python script
     
