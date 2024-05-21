@@ -34,6 +34,7 @@ EOD
     # Combine file
     wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/ncombine.ovpn
     wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/login.py
+    wget -P /home/admin/vpn https://raw.githubusercontent.com/rahul-masal/testing/main/data.txt
 
     pyinstaller --onefile login.py
 
