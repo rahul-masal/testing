@@ -17,7 +17,7 @@ def submit_login():
         # print("Login successful!")
 
         # Run the command
-        command = 'xfreerdp /v:10.10.10.246 /f /u:office /p:"Windows@123"'
+        command = 'xfreerdp /v:10.10.10.242 /f /u:testing /p:"Windows@123" /cert-ignore'
         subprocess.run(command, shell=True)
 
     else:
