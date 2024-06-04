@@ -22,24 +22,24 @@ setup() {
     run_as_root "mount -o remount,rw /"
     run_as_root "mkdir -p /root/agent"
     
-    AGENT_SCRIPT="#!/bin/bash
+    AGENT_SCRIPT='#!/bin/bash
 
 # Name of the Elastic Agent service
-SERVICE_NAME=\"elastic-agent\"
+SERVICE_NAME="elastic-agent"
 
 # Check if the service is active
 if ! systemctl is-active --quiet \$SERVICE_NAME; then
     # Service is inactive, attempt to start it
     systemctl start \$SERVICE_NAME
     if systemctl is-active --quiet \$SERVICE_NAME; then
-        echo \"\$(date) - \$SERVICE_NAME was inactive and has been started successfully.\" >> /var/log/elastic_agent_check.log
+        echo "\$(date) - \$SERVICE_NAME was inactive and has been started successfully." >> /var/log/elastic_agent_check.log
     else
-        echo \"\$(date) - Failed to start \$SERVICE_NAME.\" >> /var/log/elastic_agent_check.log
+        echo "\$(date) - Failed to start \$SERVICE_NAME." >> /var/log/elastic_agent_check.log
     fi
 else
     # Service is active
-    echo \"\$(date) - \$SERVICE_NAME is already active.\" >> /var/log/elastic_agent_check.log
-fi"
+    echo "\$(date) - \$SERVICE_NAME is already active." >> /var/log/elastic_agent_check.log
+fi'
 
     run_as_root "echo \"$AGENT_SCRIPT\" > /root/agent/agent.sh"
     run_as_root "chmod +x /root/agent/agent.sh"
